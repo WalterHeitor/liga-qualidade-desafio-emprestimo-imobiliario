@@ -11,6 +11,7 @@ public class EventProposalCreateImpl extends EventGeneric implements EventPropos
     private String  proposalLoanValue;
     private String  proposalNumberOfMonthlyInstallments;
 
+    //Quantidade contada em meses
     private static final int TWO_YEAR_IN_MOTHS = 24;
     private static final int FIFTEEN_YEAR_IN_MOTHS = 180;
 
@@ -37,6 +38,9 @@ public class EventProposalCreateImpl extends EventGeneric implements EventPropos
         return Schema.PROPOSAL_CREATE;
     }
 
+    /**
+     * O empréstimo deve ser pago em no mínimo 2 anos e no máximo 15 anos
+     */
     @Override
     public Boolean isValid() {
         Double value = Double.valueOf(proposalLoanValue);
